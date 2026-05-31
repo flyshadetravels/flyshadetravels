@@ -164,6 +164,10 @@
     letter-spacing:.12em;text-transform:uppercase;padding:.4rem .8rem;border-radius:100px;backdrop-filter:blur(4px)}
   .pkg-price{position:absolute;bottom:14px;right:14px;background:var(--gold);color:#26200d;font-weight:700;
     padding:.45rem .9rem;border-radius:100px;font-size:.92rem}
+  .pkg-price.counting{box-shadow:0 0 0 0 rgba(196,154,69,.55)}
+  .pkg-price.pop{animation:pricePop .55s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes pricePop{0%{transform:scale(1)}45%{transform:scale(1.22);box-shadow:0 0 22px 4px rgba(196,154,69,.6)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(196,154,69,0)}}
+  .count-price{font-variant-numeric:tabular-nums}
   .pkg-body{padding:1.5rem 1.5rem 1.7rem;display:flex;flex-direction:column;flex:1}
   .pkg-body h3{font-size:1.42rem;color:var(--forest)}
   .pkg-route{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;color:var(--ink-soft);font-size:.86rem;font-weight:500;margin:.6rem 0 1rem}
@@ -464,22 +468,23 @@
       <article class="pkg sr">
         <div class="pkg-top">
           <svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="p1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fa978"/><stop offset="1" stop-color="#3a7553"/></linearGradient></defs><rect width="400" height="200" fill="url(#p1)"/><path d="M0,150 C80,120 160,150 240,130 C320,112 380,140 400,132 L400,200 L0,200Z" fill="#2c6244" opacity=".7"/><g stroke="#2c6244" stroke-width="1.5" fill="none" opacity=".6"><path d="M0,168 C120,150 260,164 400,154"/><path d="M0,184 C120,168 260,180 400,172"/></g></svg>
-          <span class="pkg-badge">2 Nights / 3 Days</span>
-          <span class="pkg-price">From ₹8,999</span><!-- EDIT price -->
+          <span class="pkg-badge">3 Nights / 4 Days</span>
+          <span class="pkg-price">From ₹<span class="count-price" data-target="13990">0</span></span><!-- EDIT price -->
         </div>
         <div class="pkg-body">
-          <h3>Munnar &amp; Backwaters</h3>
-          <div class="pkg-route">Kochi <i>→</i> Munnar <i>→</i> Alappuzha</div>
+          <h3>Munnar, Backwaters &amp; Kochi</h3>
+          <div class="pkg-route">Kochi <i>→</i> Munnar <i>→</i> Alappuzha <i>→</i> Kochi</div>
           <ul class="pkg-hi">
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Tea-garden drive &amp; Munnar sightseeing</li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Eravikulam, Mattupetty &amp; Echo Point</li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Overnight-style houseboat day cruise</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Munnar sightseeing, tea estates &amp; elephant safari</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Alappuzha backwater cruise, shikara ride &amp; beach</li>
+            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Fort Kochi heritage &amp; Chinese fishing nets</li>
           </ul>
           <details class="itin">
             <summary>View day-by-day <span class="chev">+</span></summary>
-            <div class="day"><b>Day 1 — Into the hills</b>Pick-up from Kochi and a scenic climb to Munnar past Cheeyappara and Valara waterfalls. Evening free to wander the town and spice markets.</div>
-            <div class="day"><b>Day 2 — Munnar sightseeing</b>A full day among the tea estates — Eravikulam National Park, Tea Museum, Mattupetty Dam, Echo Point and Kundala Lake.</div>
-            <div class="day"><b>Day 3 — Backwaters &amp; farewell</b>Drive to Alappuzha for a leisurely backwater cruise, then transfer to Kochi airport / station.</div>
+            <div class="day"><b>Day 1 — Into the hills</b>Pick-up from Kochi and a scenic climb to Munnar past Cheeyappara and Valara waterfalls, with stops at Second Mile and Pipeline viewpoints. Evening free to wander the town and spice markets.</div>
+            <div class="day"><b>Day 2 — Munnar sightseeing</b>A full day among the tea estates — Eravikulam National Park, Tea Museum, Rose Garden, Munnar Village viewpoint, Photo Point, elephant safari, Mattupetty tea factory, Mattupetty Dam &amp; boating, and Echo Point.</div>
+            <div class="day"><b>Day 3 — Backwaters &amp; Alappuzha</b>Drive to Alappuzha for a leisurely backwater cruise / shikara ride and an evening at Alappuzha beach, then check in to your hotel.</div>
+            <div class="day"><b>Day 4 — Fort Kochi &amp; farewell</b>Drive to Kochi to explore Fort Kochi beach, the Water Metro, Chinese fishing nets, Jew Town, Mattancherry Palace, the Synagogue and the Folklore Museum, with a stop at Lulu Mall before your transfer to Kochi airport / station.</div>
           </details>
           <a href="#contact" class="btn btn-gold">Book this trip</a>
         </div>
@@ -734,7 +739,7 @@
           <div class="f-row">
             <div class="field"><label for="enqPkg">Interested in</label>
               <select id="enqPkg">
-                <option>2N/3D — Munnar &amp; Backwaters</option>
+                <option>3N/4D — Munnar, Backwaters &amp; Kochi</option>
                 <option>3N/4D — Munnar · Thekkady · Alleppey</option>
                 <option>4N/5D — Hills, Backwaters &amp; Beach</option>
                 <option>6N/7D — Grand Kerala</option>
@@ -777,7 +782,7 @@
       <div class="foot-col">
         <h5>Packages</h5>
         <ul>
-          <li><a href="#packages">2 Nights / 3 Days</a></li>
+          <li><a href="#packages">Munnar, Backwaters &amp; Kochi</a></li>
           <li><a href="#packages">3 Nights / 4 Days</a></li>
           <li><a href="#packages">4 Nights / 5 Days</a></li>
           <li><a href="#packages">6 Nights / 7 Days</a></li>
@@ -830,6 +835,26 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: .14 });
   document.querySelectorAll('.sr').forEach(el => io.observe(el));
+
+  // price count-up animation
+  function animatePrice(el){
+    const target = parseInt(el.dataset.target, 10) || 0;
+    const badge = el.closest('.pkg-price');
+    if(badge) badge.classList.add('counting');
+    const dur = 1300, start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      el.textContent = Math.round(eased * target).toLocaleString('en-IN');
+      if(p < 1){ requestAnimationFrame(tick); }
+      else { el.textContent = target.toLocaleString('en-IN'); if(badge){ badge.classList.remove('counting'); badge.classList.add('pop'); } }
+    }
+    requestAnimationFrame(tick);
+  }
+  const priceIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ animatePrice(e.target); priceIO.unobserve(e.target); } });
+  }, { threshold: .6 });
+  document.querySelectorAll('.count-price').forEach(el => priceIO.observe(el));
 
   // enquiry -> whatsapp  (EDIT the number below: countrycode + number, no +, no spaces)
   const WHATSAPP_NUMBER = "919876543210";
