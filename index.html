@@ -60,8 +60,8 @@
     padding:.85rem 1.5rem;border-radius:100px;cursor:pointer;border:1px solid transparent;
     transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
   }
-  .btn-gold{background:var(--gold);color:#26200d;box-shadow:0 14px 26px -14px rgba(196,154,69,.8)}
-  .btn-gold:hover{transform:translateY(-2px);background:#d4a94f}
+  .btn-gold{background:linear-gradient(135deg,#d4a94f,#c49a45 55%,#a77e2c);color:#26200d;box-shadow:0 14px 26px -12px rgba(167,126,44,.75)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 20px 34px -12px rgba(167,126,44,.85)}
   .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
   .btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
   .btn-dark{background:var(--forest);color:#f6f3e9}
@@ -79,8 +79,8 @@
   @media(max-width:760px){.topbar .tb-right .tb-mail{display:none}}
 
   /* ---------- header ---------- */
-  header{position:sticky;top:0;z-index:60;transition:background .3s,box-shadow .3s,padding .3s}
-  header.scrolled{background:rgba(251,247,238,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line),0 16px 40px -34px rgba(16,38,29,.6)}
+  header{position:sticky;top:0;z-index:60;transition:background .3s,box-shadow .3s,padding .3s;background:rgba(251,247,238,.55);backdrop-filter:blur(6px)}
+  header.scrolled{background:rgba(251,247,238,.94);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line),0 16px 40px -34px rgba(16,38,29,.6)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1.5rem}
   .brand{display:flex;align-items:center;gap:.7rem;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--forest)}
   .brand .mark{width:42px;height:42px;flex:none}
@@ -115,23 +115,30 @@
   @media(min-width:981px){.mobile-menu,.scrim{display:none}}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;
-    background:linear-gradient(180deg,#f6eccf 0%,#f7ddc0 38%,#eef0d8 70%,#dfeacb 100%)}
-  .hero-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden;
+    background:#0c2c20}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+    transform:scale(1.06);animation:heroZoom 14s ease-out forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero-veil{position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(8,28,20,.30) 0%,rgba(8,28,20,.20) 38%,rgba(8,28,20,.62) 78%,rgba(8,24,16,.86) 100%)}
+  .hero-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:none}
   .mist{position:absolute;left:0;right:0;height:160px;background:linear-gradient(180deg,rgba(255,255,255,.55),transparent);z-index:1;mix-blend-mode:screen;animation:drift 18s ease-in-out infinite alternate}
   .mist.m1{top:30%}.mist.m2{top:46%;opacity:.6;animation-duration:24s}
   @keyframes drift{from{transform:translateX(-4%)}to{transform:translateX(6%)}}
-  .hero-inner{position:relative;z-index:3;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 8vh}
-  .hero-card{max-width:680px}
-  .hero h1{font-size:clamp(2.7rem,6.4vw,5rem);color:#0c2c20;letter-spacing:-.025em}
-  .hero h1 em{font-style:italic;color:var(--gold-deep)}
-  .hero p{font-size:clamp(1.05rem,1.6vw,1.22rem);color:#274237;margin:1.3rem 0 2rem;max-width:540px}
+  .hero-inner{position:relative;z-index:3;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 9vh}
+  .hero-card{max-width:700px}
+  .hero .eyebrow{color:var(--gold)}
+  .hero .eyebrow::before{background:var(--gold)}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,5rem);color:#fff;letter-spacing:-.025em;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .hero h1 em{font-style:italic;color:#f0cf86}
+  .hero p{font-size:clamp(1.05rem,1.6vw,1.22rem);color:#e7efe8;margin:1.3rem 0 2rem;max-width:560px;text-shadow:0 1px 14px rgba(0,0,0,.4)}
   .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap}
-  .hero .btn-ghost{border-color:rgba(20,60,45,.4);color:#163b2c}
-  .hero .btn-ghost:hover{background:rgba(20,60,45,.08)}
-  .hero-tags{display:flex;gap:1.6rem;margin-top:2.4rem;flex-wrap:wrap;color:#2c4a3c;font-size:.9rem;font-weight:500}
+  .hero .btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;backdrop-filter:blur(4px)}
+  .hero .btn-ghost:hover{background:rgba(255,255,255,.14)}
+  .hero-tags{display:flex;gap:1.6rem;margin-top:2.4rem;flex-wrap:wrap;color:#dceadf;font-size:.9rem;font-weight:500}
   .hero-tags span{display:inline-flex;align-items:center;gap:.5rem}
-  .hero-tags svg{width:16px;height:16px;stroke:var(--gold-deep);fill:none;stroke-width:1.8}
+  .hero-tags svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.8}
   .reveal-up{opacity:0;transform:translateY(26px)}
   .hero .reveal-up{animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
   .hero .d1{animation-delay:.05s}.hero .d2{animation-delay:.2s}.hero .d3{animation-delay:.35s}.hero .d4{animation-delay:.5s}.hero .d5{animation-delay:.65s}
@@ -158,11 +165,14 @@
   .pkg{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
     display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
   .pkg:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .pkg-top{position:relative;height:180px;overflow:hidden}
+  .pkg-top{position:relative;height:200px;overflow:hidden}
+  .pkg-top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .pkg:hover .pkg-top img{transform:scale(1.07)}
   .pkg-top svg{position:absolute;inset:0;width:100%;height:100%}
-  .pkg-badge{position:absolute;top:14px;left:14px;background:rgba(15,58,43,.85);color:#fff;font-size:.74rem;font-weight:600;
+  .pkg-top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,28,20,.05),rgba(8,28,20,.35))}
+  .pkg-badge{position:absolute;top:14px;left:14px;z-index:2;background:rgba(15,58,43,.85);color:#fff;font-size:.74rem;font-weight:600;
     letter-spacing:.12em;text-transform:uppercase;padding:.4rem .8rem;border-radius:100px;backdrop-filter:blur(4px)}
-  .pkg-price{position:absolute;bottom:14px;right:14px;background:var(--gold);color:#26200d;font-weight:700;
+  .pkg-price{position:absolute;bottom:14px;right:14px;z-index:2;background:var(--gold);color:#26200d;font-weight:700;
     padding:.45rem .9rem;border-radius:100px;font-size:.92rem}
   .pkg-price.counting{box-shadow:0 0 0 0 rgba(196,154,69,.55)}
   .pkg-price.pop{animation:pricePop .55s cubic-bezier(.2,1.4,.4,1)}
@@ -206,8 +216,8 @@
   .dest{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;color:#fff;display:flex;
     align-items:flex-end;box-shadow:var(--shadow-sm);transition:transform .4s}
   .dest:hover{transform:translateY(-6px)}
-  .dest svg.bg{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s}
-  .dest:hover svg.bg{transform:scale(1.06)}
+  .dest svg.bg,.dest img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .dest:hover svg.bg,.dest:hover img.bg{transform:scale(1.08)}
   .dest .sheen{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(8,24,16,.78))}
   .dest .txt{position:relative;z-index:2;padding:1.3rem}
   .dest .txt h3{font-size:1.4rem}
@@ -387,51 +397,9 @@
 
 <!-- ========================= HERO ========================= -->
 <section class="hero">
-  <!-- Layered Kerala landscape (original SVG art) -->
-  <svg class="hero-scene" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd2b6"/><stop offset="1" stop-color="#a6c4a4"/></linearGradient>
-      <linearGradient id="mid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#79a87f"/><stop offset="1" stop-color="#5f9269"/></linearGradient>
-      <linearGradient id="near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7d57"/><stop offset="1" stop-color="#2c6244"/></linearGradient>
-      <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb6ad"/><stop offset="1" stop-color="#4f978f"/></linearGradient>
-      <radialGradient id="sun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff4d8"/><stop offset="1" stop-color="#f6d79a" stop-opacity="0"/></radialGradient>
-    </defs>
-    <circle cx="1090" cy="180" r="120" fill="url(#sun)"/>
-    <circle cx="1090" cy="180" r="46" fill="#fde6bf"/>
-    <!-- far hills -->
-    <path d="M0,360 C220,300 380,340 600,312 C820,284 1050,330 1280,300 C1360,290 1410,300 1440,296 L1440,760 L0,760Z" fill="url(#far)"/>
-    <!-- mid hills -->
-    <path d="M0,440 C200,388 420,430 640,400 C880,366 1080,420 1300,392 C1370,384 1420,392 1440,388 L1440,760 L0,760Z" fill="url(#mid)"/>
-    <!-- near tea hills -->
-    <path d="M0,540 C160,494 360,540 560,512 C760,484 980,540 1180,514 C1300,498 1390,520 1440,512 L1440,760 L0,760Z" fill="url(#near)"/>
-    <!-- tea-row texture -->
-    <g stroke="#2c6244" stroke-width="1.4" opacity=".5" fill="none">
-      <path d="M40,600 C300,572 560,592 820,576 C1080,560 1300,584 1440,576"/>
-      <path d="M0,634 C260,606 520,628 800,612 C1080,596 1320,620 1440,612"/>
-      <path d="M0,668 C260,644 540,664 820,650 C1100,636 1320,656 1440,650"/>
-    </g>
-    <!-- backwater -->
-    <path d="M0,700 C220,684 520,712 820,700 C1120,688 1320,706 1440,700 L1440,760 L0,760Z" fill="url(#water)"/>
-    <!-- houseboat silhouette -->
-    <g transform="translate(940,672)" fill="#123528">
-      <path d="M0,18 Q60,38 120,18 L120,26 Q60,46 0,26 Z"/>
-      <rect x="14" y="2" width="92" height="16" rx="4"/>
-      <path d="M14,2 Q60,-12 106,2 Z" fill="#8a6a30"/>
-    </g>
-    <!-- palm left -->
-    <g transform="translate(150,400)" stroke="#1d4332" stroke-width="6" fill="none" stroke-linecap="round">
-      <path d="M0,150 C-6,90 4,40 8,4"/>
-    </g>
-    <g transform="translate(158,402)" fill="#1d4332">
-      <path d="M0,2 C-40,-18 -64,-6 -78,12 C-52,4 -26,8 0,18Z"/>
-      <path d="M0,2 C40,-18 64,-6 78,12 C52,4 26,8 0,18Z"/>
-      <path d="M0,0 C-22,-34 -16,-58 0,-78 C16,-58 22,-34 0,0Z"/>
-      <path d="M0,4 C-46,-2 -64,16 -72,36 C-46,18 -22,16 0,20Z"/>
-      <path d="M0,4 C46,-2 64,16 72,36 C46,18 22,16 0,20Z"/>
-    </g>
-  </svg>
-  <div class="mist m1"></div>
-  <div class="mist m2"></div>
+  <!-- Real Kerala hero photo (Munnar tea hills) -->
+  <img class="hero-photo" src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2000&auto=format&fit=crop" alt="Misty tea-covered hills of Munnar, Kerala" loading="eager">
+  <div class="hero-veil"></div>
 
   <div class="hero-inner">
     <div class="hero-card">
@@ -476,7 +444,7 @@
       <!-- PACKAGE 1 -->
       <article class="pkg sr">
         <div class="pkg-top">
-          <svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="p1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fa978"/><stop offset="1" stop-color="#3a7553"/></linearGradient></defs><rect width="400" height="200" fill="url(#p1)"/><path d="M0,150 C80,120 160,150 240,130 C320,112 380,140 400,132 L400,200 L0,200Z" fill="#2c6244" opacity=".7"/><g stroke="#2c6244" stroke-width="1.5" fill="none" opacity=".6"><path d="M0,168 C120,150 260,164 400,154"/><path d="M0,184 C120,168 260,180 400,172"/></g></svg>
+          <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=900&auto=format&fit=crop" alt="Munnar tea hills">
           <span class="pkg-badge">3 Nights / 4 Days</span>
           <span class="pkg-price">From ₹<span class="count-price" data-target="13990">0</span></span><!-- EDIT price -->
         </div>
@@ -502,7 +470,7 @@
       <!-- PACKAGE 2 -->
       <article class="pkg sr">
         <div class="pkg-top">
-          <svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="p2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f978f"/><stop offset="1" stop-color="#2c6b64"/></linearGradient></defs><rect width="400" height="200" fill="url(#p2)"/><path d="M0,130 C90,110 180,135 270,118 C340,106 380,124 400,120 L400,200 L0,200Z" fill="#1f534d" opacity=".7"/><circle cx="320" cy="55" r="26" fill="#fbe7b8" opacity=".85"/></svg>
+          <img src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?q=80&w=900&auto=format&fit=crop" alt="Fort Kochi Chinese fishing nets">
           <span class="pkg-badge">2 Nights / 3 Days</span>
           <span class="pkg-price">From ₹9,990</span><!-- EDIT price -->
         </div>
@@ -527,7 +495,7 @@
       <!-- PACKAGE 3 -->
       <article class="pkg sr">
         <div class="pkg-top">
-          <svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="p3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3b572"/><stop offset="1" stop-color="#c98f48"/></linearGradient></defs><rect width="400" height="200" fill="url(#p3)"/><path d="M0,150 C100,135 200,158 300,145 C350,138 380,150 400,146 L400,200 L0,200Z" fill="#b87f3c" opacity=".6"/><path d="M0,170 C120,162 260,176 400,168 L400,200 L0,200Z" fill="#9c6a30"/></svg>
+          <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?q=80&w=900&auto=format&fit=crop" alt="Kerala backwaters houseboat">
           <span class="pkg-badge">4 Nights / 5 Days</span>
           <span class="pkg-price">From ₹17,490</span><!-- EDIT price -->
         </div>
@@ -554,7 +522,7 @@
       <!-- PACKAGE 4 -->
       <article class="pkg sr">
         <div class="pkg-top">
-          <svg viewBox="0 0 400 200" preserveAspectRatio="none"><defs><linearGradient id="p4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4d6b8a"/><stop offset="1" stop-color="#2f4a66"/></linearGradient></defs><rect width="400" height="200" fill="url(#p4)"/><path d="M0,120 C80,150 160,100 240,128 C320,156 380,118 400,128 L400,200 L0,200Z" fill="#22384d" opacity=".75"/><circle cx="70" cy="50" r="22" fill="#f3ead2" opacity=".8"/></svg>
+          <img src="https://images.unsplash.com/photo-1572931089751-988fc1a7a056?q=80&w=900&auto=format&fit=crop" alt="Kovalam beach Kerala">
           <span class="pkg-badge">7 Nights / 8 Days</span>
           <span class="pkg-price">From ₹27,990</span><!-- EDIT price -->
         </div>
@@ -646,28 +614,28 @@
     <div class="dest-grid">
 
       <div class="dest sr">
-        <svg class="bg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="d1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb582"/><stop offset="1" stop-color="#3f7d57"/></linearGradient></defs><rect width="300" height="400" fill="url(#d1)"/><path d="M0,240 C70,210 150,250 230,220 C270,206 290,222 300,216 L300,400 L0,400Z" fill="#2c6244"/><g stroke="#235039" stroke-width="2" fill="none" opacity=".6"><path d="M0,290 C100,265 200,285 300,272"/><path d="M0,322 C100,300 200,318 300,306"/><path d="M0,354 C100,334 200,350 300,340"/></g></svg>
+        <img class="bg" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?q=80&w=700&auto=format&fit=crop" alt="Munnar tea hills">
         <div class="sheen"></div>
         <span class="pin">Hill Station</span>
         <div class="txt"><h3>Munnar</h3><p>Endless tea carpets, cool mist and the Nilgiri Tahr of Eravikulam.</p></div>
       </div>
 
       <div class="dest sr">
-        <svg class="bg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="d2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f6b52"/><stop offset="1" stop-color="#1f4733"/></linearGradient></defs><rect width="300" height="400" fill="url(#d2)"/><path d="M0,250 C80,220 150,260 220,235 C270,218 290,236 300,230 L300,400 L0,400Z" fill="#163728"/><g fill="#0f2c1f"><path d="M70,250 l14,-70 14,70Z"/><path d="M150,255 l18,-90 18,90Z"/><path d="M230,250 l12,-60 12,60Z"/></g></svg>
+        <img class="bg" src="https://images.unsplash.com/photo-1591018533675-9eb2c4f95a5a?q=80&w=700&auto=format&fit=crop" alt="Periyar Thekkady forest">
         <div class="sheen"></div>
         <span class="pin">Wildlife</span>
         <div class="txt"><h3>Thekkady</h3><p>Boat safaris on Periyar lake and fragrant spice plantations.</p></div>
       </div>
 
       <div class="dest sr">
-        <svg class="bg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="d3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#69b1a8"/><stop offset="1" stop-color="#34756d"/></linearGradient></defs><rect width="300" height="400" fill="url(#d3)"/><path d="M0,280 C80,268 180,292 300,280 L300,400 L0,400Z" fill="#2c655e"/><g transform="translate(95,238)" fill="#11332d"><rect x="0" y="14" width="110" height="20" rx="6"/><path d="M0,14 Q55,-4 110,14Z" fill="#caa45a"/><path d="M-6,34 Q55,52 116,34 L116,40 Q55,58 -6,40Z"/></g></svg>
+        <img class="bg" src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?q=80&w=700&auto=format&fit=crop" alt="Alappuzha backwaters houseboat">
         <div class="sheen"></div>
         <span class="pin">Backwaters</span>
         <div class="txt"><h3>Alappuzha</h3><p>The Venice of the East — kettuvallam houseboats on Vembanad.</p></div>
       </div>
 
       <div class="dest sr">
-        <svg class="bg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="d4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0c987"/><stop offset="1" stop-color="#5fa3c4"/></linearGradient></defs><rect width="300" height="400" fill="url(#d4)"/><circle cx="220" cy="90" r="34" fill="#fde6bf"/><path d="M0,300 C80,288 180,312 300,300 L300,400 L0,400Z" fill="#3b87a8"/><g transform="translate(60,210)" stroke="#1f4332" stroke-width="5" fill="none" stroke-linecap="round"><path d="M0,90 C-4,55 2,25 4,4"/></g><g transform="translate(64,212)" fill="#1f4332"><path d="M0,2 C-28,-12 -44,-4 -54,8 C-36,2 -18,6 0,12Z"/><path d="M0,2 C28,-12 44,-4 54,8 C36,2 18,6 0,12Z"/><path d="M0,0 C-14,-22 -10,-38 0,-50 C10,-38 14,-22 0,0Z"/></g></svg>
+        <img class="bg" src="https://images.unsplash.com/photo-1572931089751-988fc1a7a056?q=80&w=700&auto=format&fit=crop" alt="Kovalam beach sunset">
         <div class="sheen"></div>
         <span class="pin">Beach</span>
         <div class="txt"><h3>Kovalam</h3><p>Crescent beaches, lighthouse views and Arabian Sea sunsets.</p></div>
